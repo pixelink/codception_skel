@@ -1,0 +1,26 @@
+class_name: AcceptanceTester
+step_decorators:
+  - \Codeception\Step\TryTo
+  - \Codeception\Step\ConditionalAssertion
+  - \Codeception\Step\Retry
+modules:
+  enabled:
+    - WebDriver
+    - \Tests\Helper\Acceptance
+    - Asserts
+    - REST
+  config:
+    WebDriver:
+        browser: chrome
+        window_size: 1600x1000
+        connection_timeout: 5
+        request_timeout: 30
+        restart: true
+        capabilities:
+            unexpectedAlertBehaviour: 'ignore'
+env:
+  firefox:
+    modules:
+      config:
+        WebDriver:
+          browser: 'firefox'
